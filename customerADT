@@ -1,0 +1,38 @@
+package STREETEATS;
+
+public interface CUSTOMER:
+
+  def init():
+                #creates an instance of the CUSTOMER class
+
+  def search():
+                #Uses the customer location to call the search method in LOCATION
+                #Returns a dictionary of nearby restaurants (>25 miles), and solicits the user to select one
+                #Calls functions findFood->getMenu to ultimately find the restaurant the user wants to add to his cart from.
+
+  def findFood():
+                #Recursively calls itself to ask the user for a valid restaurant
+                #Once one is given, the user can examine the menu and determine whether he would like to order from said restaurant.
+                #Calls getMenu to display the menu to see if the user would like to order here. If not, calls the search method again.
+
+  def getMenu():
+                #searches for the restaurant name in the Dictionary. Returns false if not found
+
+  def order():
+                #inputs user for selections. Adds selections to cart if valid
+                #
+      
+  def addItem():
+                #adds a selection, and its price into list of lists cart
+
+  def removeItem():
+                #Before checking out, the user will have the option to trim down order
+
+  def checkOut():
+                #At check out, user will be able to remove items, and the total price will be calculated based on the deals/promotions that are available
+                #If the credit card is valid, the user will be asked if he wants delivery or pick up
+                #A transaction will be created, where the restaurant/delivery man will receive X money, if they accept the order
+                # Transaction will be stored in STREETEATS DATABASE
+                #Customer will receive a time estimate based on the latter and the number of items ordered
+                # A timer will be created, when the timer runs out a message will be displayed on the screen
+  
