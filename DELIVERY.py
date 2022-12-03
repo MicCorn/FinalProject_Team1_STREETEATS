@@ -5,7 +5,10 @@ import CUSTOMER
 def solicitDelivery(user_Cart):
   #random variable
   return True
-  
+
+
+def returnTime():
+  pass
 
   
 

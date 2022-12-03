@@ -6,6 +6,11 @@ def CCisValid(ccNum):
   var = True
   ##checks in database if ccNum is valid
   return True
+
+
+def addCC(ccNum):
+  pass
+                  
   
 
   

@@ -1,0 +1,14 @@
+package STREETEATS;
+
+public interface DELIVERY:
+
+  def solicitDelivery():
+                        Creates a random variable with probability 50%. If rv is in range 0-50 the delviery is rejected. If it is in range 51- 100 it is accepted. If it is rejected the code will keep running using a binary approach- odds are now 0-25 and 26 - 100. Then 0-12, 13- 100. So on and so forth until it is finnaly accepted (it must be accepted as limit  of rejection approaches 0). However, based on the number of times the function is called, the TIME feature increases by 5 minutes for the delviery to be made. It starts at 5, if it is accepted stays at 5. If rejected, becomes 10, 15, 20...
+
+                      returns "looking for deliverers near you" when searching. Creates a 5 second timer until rv is processed. Returns "delivery accepted" or "delivery rejected" based on result
+
+
+def returnTime():
+                  Based on how many times solicitDelviery runs, it creates a timer and returns the time 
+
+
