@@ -37,9 +37,19 @@ def search(customer_location):
 #Example format for a single item returned dictionary, "foodDic":
   """
   'r12': {
-  'name': 'NAME OF RESTURAUNT'
-  'rating': ''
+  'name': 'NAME OF RESTURAUNT (str)',
+  'rating': 'RATING OUT OF 5 (float)',
+  'price_level': 'PRICE LEVEL 1-5 (int)',
+  'distance': 'BIKING DISTANCE FROM RESTURAUNT TO CUSTOMER LOCATION IN KM (str)',
+  'duration': 'BIKING DURATION (str)'
+  }
+
+  'r12': {
+  'name': 'La Turka Kebab',
+  'rating': '4.2',
+  'price_level': '1',
+  'distance': '5.7km',
+  'duration': '35 min'
   }
   """
-  
   

@@ -5,15 +5,30 @@ from CUSTOMER import user_Cart
 
 import time
 
-def solicitDelivery(user_Cart):
-  global seconds
-  seconds = 0
-  return True
+from random import randint
 
+attempt = 1
 
-def returnTime(seconds):
-  seconds = seconds + 5
-  time.sleep(seconds)
+def solicitDelivery(attempt):
+  time.sleep(5)
+  limit = int(50/attempt)
+  x = randint(0,100)
+  if x > 50:
+    #returnTime(attempt)
+    #print(x)
+    #print(attempt)
+    print("Delivery Accepted")
+    return attempt
+  if x <= 50:
+    print(x)
+    print("Delivery Rejected")
+    attempt = attempt + 1
+    solicitDelivery(attempt)
+
+def returnTime(attempts):
+  attempt = solicitDelivery(1)
+  countdown = countdown + 5*attempt
+  return countdown
 
   
 

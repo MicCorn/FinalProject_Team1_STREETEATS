@@ -3,4 +3,29 @@ package STREETEATS;
 public interface LOCATION:
 
   def search(customer_location):
-            #
+            #Uses customer location input, in plaintext, to do the following process:
+            # 1. If customer location is blank, or "here", sets location to IES Center
+            # 1a. If customer location cannot be found, raises NameError
+            # 2. Converts location to a tuple of Coordinates using Google Maps api Reverse location search
+            # 3. Using the coordinates, it searches for nearby kebab resturaunts in a 25km radius, in a call to Google api, compiling the results into an incredibly messy dictionary
+            # 4. Indexes through this dictionary one resturaunt at a time pulling only the useful information from the messy dictionary, and adding it to a cleaned dictionary
+            # 5. Returns this cleaned dictionary for use in other applications of the program
+
+#Example format for a single item returned dictionary, "foodDic":
+  """
+  'r12': {
+  'name': 'NAME OF RESTURAUNT (str)',
+  'rating': 'RATING OUT OF 5 (float)',
+  'price_level': 'PRICE LEVEL 1-5 (int)',
+  'distance': 'BIKING DISTANCE FROM RESTURAUNT TO CUSTOMER LOCATION IN KM (str)',
+  'duration': 'BIKING DURATION (str)'
+  }
+
+  'r12': {
+  'name': 'La Turka Kebab',
+  'rating': '4.2',
+  'price_level': '1',
+  'distance': '5.7km',
+  'duration': '35 min'
+  }
+  """
