@@ -28,7 +28,14 @@ class CUSTOMER():
     user_Cart = []
     print(user_Cart)
     foodDic = search(self.__a)
-    print(foodDic)
+    list = []
+    for x in foodDic:
+      print(x, ": ")
+      for y in foodDic[x]:
+        list.append(foodDic[x][y])
+      print("   " , list)
+      list = []
+        
     self.findFood(foodDic)
 
     
@@ -36,7 +43,7 @@ class CUSTOMER():
   def findFood(self, foodDic):
     x = True
     while x is True:
-      selection = input("Please select a restaurant: ")
+      selection = input("Please select a restaurant (E to exit): ")
       menuDic = self.getMenu(selection, foodDic)
       if menuDic != False:
         print(menuDic)
@@ -50,6 +57,9 @@ class CUSTOMER():
       else:
         x = False
         self.findFood(foodDic)
+
+      if selection == 'X':
+        x = False
 
 
         
@@ -115,3 +125,7 @@ class CUSTOMER():
             
         else:
           print("Your food will be ready for pick up soon!")
+
+
+  def contact(self):
+    pass

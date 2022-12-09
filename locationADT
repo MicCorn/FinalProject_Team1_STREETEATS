@@ -1,0 +1,6 @@
+package STREETEATS;
+
+public interface LOCATION:
+
+  def search(customer_location):
+            #

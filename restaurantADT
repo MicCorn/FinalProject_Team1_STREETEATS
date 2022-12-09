@@ -3,11 +3,11 @@ package STREETEATS;
 public interface RESTAURANT:
 
   def menu():
-              Creates a dictionary with the resutaurants' menu items and their respective prices. **Could create the same menu for each Kebab restaurant but with a random variable for the prices if we cannot import the menu from google maps
+              Creates a dictionary with the restaurants' menu items and their respective prices. **Could create the same menu for each Kebab restaurant but with a random variable for the prices if we cannot import the menu from google maps
 
   def promotions():
                     Loops through the user cart to check if there are matching combinations for promotions. Promotions will be stored in a similar dictionary/list of list and check if they are equal. If they are equal, it adds the discount to num. In the customer class, num is susbtracted from the total price
 
 def solicitOrder():
-                    Creates a random variable with probability 95% success to see if the resutarnat accepts the order. A second rv is defined which determines the speed of preperation. 10 minutes 50%, 20 minutes 75%, 30 min 100%
+                    Creates a random variable with probability 95% success to see if the restaurant accepts the order. A second rv is defined which determines the speed of preparation. 10 minutes 50%, 20 minutes 75%, 30 min 100%
 

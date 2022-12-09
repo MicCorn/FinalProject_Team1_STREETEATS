@@ -1,4 +1,9 @@
-import STREETEATS
-from STREETEATS import create_customer
+import KEBABOCLOCK
+from KEBABOCLOCK import create_customer
+from KEBABOCLOCK import logIn
 
-print(create_customer())
+print(logIn())
+#print(create_customer())
+
+
+

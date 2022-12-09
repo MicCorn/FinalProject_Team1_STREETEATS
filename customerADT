@@ -7,7 +7,7 @@ public interface CUSTOMER:
 
   def search():
                 #Uses the customer location to call the search method in LOCATION
-                #Returns a dictionary of nearby restaurants (>25 miles), and solicits the user to select one
+                #Returns a dictionary of nearby restaurants (>25 km), and solicits the user to select one
                 #Calls functions findFood->getMenu to ultimately find the restaurant the user wants to add to his cart from.
 
   def findFood():

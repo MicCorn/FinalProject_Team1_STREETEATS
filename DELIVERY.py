@@ -1,14 +1,19 @@
-import CUSTOMER
-##from CUSTOMER import user_Cart
+##Mary
 
+import CUSTOMER
+from CUSTOMER import user_Cart
+
+import time
 
 def solicitDelivery(user_Cart):
-  #random variable
+  global seconds
+  seconds = 0
   return True
 
 
-def returnTime():
-  pass
+def returnTime(seconds):
+  seconds = seconds + 5
+  time.sleep(seconds)
 
   
 
