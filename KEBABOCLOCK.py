@@ -3,10 +3,9 @@ from replit import db
 import CUSTOMER
 from CUSTOMER import CUSTOMER
 
-import CUSTOMERdb
-from CUSTOMERdb import addCustomer
-from CUSTOMERdb import returnDB
-from CUSTOMERdb import inDB
+import CREDITCARD
+from CREDITCARD import CCisValid
+
 
 
 def logIn():
@@ -17,6 +16,7 @@ def logIn():
       var4 = input("password: ")
       if db[var1][0] == var4:
         print("Welcome")
+        print("Credit Card used: ", db[var1][1])
         var5 = input("location: ")
         c1 = CUSTOMER(var5, db[var1][1], var1)
         c1.Search()
@@ -34,6 +34,9 @@ def create_customer():
 
   var1 = input("name: ")
   var2 = int(input("Credit Card number: "))
+
+  while CCisValid(var2) != True:
+      var2 = int(input("Credit Card number: "))
   
   var3 = input("location: ")
 

@@ -1,15 +1,25 @@
 import CUSTOMER
 ##from CUSTOMER import ccNum
 
+#readFile = readline()
 
 def CCisValid(ccNum):
-  var = True
-  ##checks in database if ccNum is valid
-  return True
+  file = open('creditcards.txt', 'r+')
 
+  new = file.readlines()
+  for i in range(len(new)):
+    if str(ccNum) in new[i]:
+      file.close()
+      return True
+  file.close()
+  return False
 
 def addCC(ccNum):
-  pass
+  result = CCisValid(ccNum)
+  if result == False:
+    file.write('\n' + str(ccNum))
+
+
                   
   
 

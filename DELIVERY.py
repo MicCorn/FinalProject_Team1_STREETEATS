@@ -1,7 +1,7 @@
 ##Mary
 
 import CUSTOMER
-from CUSTOMER import user_Cart
+##from CUSTOMER import user_Cart
 
 import time
 
@@ -9,26 +9,23 @@ from random import randint
 
 attempt = 1
 
-def solicitDelivery(attempt):
+def solicitDelivery(probability, attempts):
+  print("looking for driver")
   time.sleep(5)
-  limit = int(50/attempt)
   x = randint(0,100)
-  if x > 50:
-    #returnTime(attempt)
-    #print(x)
-    #print(attempt)
+  if x > probability:
     print("Delivery Accepted")
-    return attempt
-  if x <= 50:
-    print(x)
+    return attempts
+  else:
     print("Delivery Rejected")
-    attempt = attempt + 1
-    solicitDelivery(attempt)
+    solicitDelivery(probability - (100 - int(probability/2)), attempts + 1)
+  
 
-def returnTime(attempts):
-  attempt = solicitDelivery(1)
-  countdown = countdown + 5*attempt
-  return countdown
+def returnTime(attempts, distance):
+  
+  countdown = distance + 5*attempts
+  pass
+  #returns a countdown in minutes
 
   
 

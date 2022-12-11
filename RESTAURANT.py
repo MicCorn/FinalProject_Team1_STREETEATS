@@ -1,7 +1,7 @@
 ##Jiean
 
 import CUSTOMER
-from CUSTOMER import user_Cart
+#from CUSTOMER import user_Cart
 
 
 ## returns the digital menu of the restaurant, includes promotions
@@ -14,8 +14,8 @@ def menu(restaurant):
 
 def promotions(cart):
   num = 0
-  for i in cart:
-    if i = code:
+  #for i in cart:
+  #  if i = code:
       
   #List of lists
   #Buy 1 get 1 Free, Spend 10 save 7, Buy 2 get 1 Free, 
