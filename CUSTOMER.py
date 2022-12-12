@@ -18,6 +18,8 @@ class CUSTOMER():
 
   global user_Cart 
   user_Cart = []
+
+  global DURATION
   
   def __init__(self, location, ccNum, name):
     self.__a = location
@@ -25,13 +27,22 @@ class CUSTOMER():
     self.__c = name
 
 
-  def getDistance(self, foodDic):
-    pass
+  def getDuration(self, foodDic, selection):
+    if selection in foodDic.keys():
+      for y in foodDic[selection]:
+        if (y == 'duration'):
+          DURATION = foodDic[selection][y]
+          print(DURATION)
+
 
   def Search(self):
     user_Cart = []
     
     foodDic = search(self.__a)
+    ##Error handling
+    if len(foodDic) == 0:
+      raise ValueError("This location is too broad, or has no open KEBAB restaurants")
+      
     list = []
     for x in foodDic:
       print(x, ": ")
@@ -39,7 +50,7 @@ class CUSTOMER():
         list.append(foodDic[x][y])
       print("   " , list)
       list = []
-    
+
     print("Cart: ", user_Cart)
     self.findFood(foodDic)
 
@@ -52,21 +63,22 @@ class CUSTOMER():
       
       if selection.lower() == 'e':
         print("... exiting")
-        break
+        x = False
+        
       else:
         menuDic = self.getMenu(selection, foodDic)
         if menuDic != False:
           print(menuDic)
           var = input("Would you like to order here? Y/N: ")
-          if var == "Y":
+          if var.lower() == "y":
             x = False
             self.order(selection, menuDic, foodDic)
           else:
             x = False
-            self.findFood(foodDic)
+            return self.findFood(foodDic)
         else:
           x = False
-          self.findFood(foodDic)     
+          return self.findFood(foodDic)     
 
       
         
@@ -116,7 +128,9 @@ class CUSTOMER():
     for x in user_Cart:
       print(x)
       totalprice += int(x[1])
-
+    if len(user_Cart) == 0:
+      raise ValueError("Subtotal cannot be 0")
+      self.findFood(foodDic)   
     if discount != 0:
       print("Congratulations! Your subtotal of " + str(totalprice) + "has been reduced to " + str(totalprice - discount))
     else:
@@ -130,9 +144,10 @@ class CUSTOMER():
           #if solicitDelivery(user_Cart) is True:
           attempts = solicitDelivery(50, 1)
           print("Your food is on the way " + self.__c + "!")
+          getDuration(foodDic, )
           #countdown
           #need help getting the distance, foodDIc is passed in the method (the one that spits everything), put distance as 0 for now
-          print(returnTime(attempts, 0))
+          print(returnTime(attempts, 10))
             
         else:
           print("Your food will be ready for pick up soon!")

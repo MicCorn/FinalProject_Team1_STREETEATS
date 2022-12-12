@@ -28,9 +28,9 @@ def search(customer_location):
                                      departure_time=datetime.now())
     #Add all info to dictionary, with appropriate key names
     try:
-      foodDic["r" + str(rest)] = {"name": item["name"], 'rating': item["rating"], 'price_level': item["price_level"], 'distance': directions_result[0]['legs'][0]['distance']['text'], 'duration': directions_result[0]['legs'][0]['duration']['text']}
+      foodDic["r" + str(rest)] = {"name": item["name"], 'rating': item["rating"], 'price_level': item["price_level"], 'distance': directions_result[0]['legs'][0]['distance']['text'], 'distance_raw': directions_result[0]['legs'][0]['distance']['text'].split()[0], 'duration': directions_result[0]['legs'][0]['duration']['text']}
     except KeyError:
-      foodDic["r" + str(rest)] = {"name": item["name"], 'rating': item["rating"], 'distance': directions_result[0]['legs'][0]['distance']['text'], 'duration': directions_result[0]['legs'][0]['duration']['text']}
+      foodDic["r" + str(rest)] = {"name": item["name"], 'rating': item["rating"], 'distance': directions_result[0]['legs'][0]['distance']['text'], 'distance_raw': directions_result[0]['legs'][0]['distance']['text'].split()[0], 'duration': directions_result[0]['legs'][0]['duration']['text']}
   
   return foodDic
 
@@ -41,14 +41,16 @@ def search(customer_location):
   'rating': 'RATING OUT OF 5 (float)',
   'price_level': 'PRICE LEVEL 1-5 (int)',
   'distance': 'BIKING DISTANCE FROM RESTURAUNT TO CUSTOMER LOCATION IN KM (str)',
+  'distance_raw': 'BIKING DISTANCE (float)',
   'duration': 'BIKING DURATION (str)'
   }
 
   'r12': {
   'name': 'La Turka Kebab',
-  'rating': '4.2',
+  'rating': 4.2,
   'price_level': '1',
-  'distance': '5.7km',
+  'distance': '5.7 km',
+  'distance_raw': 5.7,
   'duration': '35 min'
   }
   """
