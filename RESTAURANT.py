@@ -6,9 +6,15 @@ import CUSTOMER
 
 ## returns the digital menu of the restaurant, includes promotions
 def menu(restaurant, price_level):
-  menuDic = {'tacos': 100, 'burger' : 50
+  menuDic = {'pita kebab': 3.5, 'durum kebab' : 4, 'chicken briyani' : 7, 'menu pita' : 7, 'adana grill' : 12, 'manti' : 8, 'ULTRA MEGA SMASH KEBAB' : 169, 'VIP FORTNITE KEBAB' : 55
     
   }
+  if price_level == None:
+    price_level = 2
+
+  for x in menuDic.keys():
+    menuDic.update({x : menuDic[x] * price_level})
+  
   return menuDic
 
 

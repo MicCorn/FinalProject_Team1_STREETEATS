@@ -43,6 +43,7 @@ class CUSTOMER():
       print(x, ": ")
       for y in foodDic[x]:
         list.append(foodDic[x][y])
+
       print("   " , list)
       list = []
 
@@ -59,6 +60,7 @@ class CUSTOMER():
       if selection.lower() == 'e':
         print("... exiting")
         x = False
+        return ""
         
       else:
         menuDic = self.getMenu(selection, foodDic)
@@ -79,6 +81,7 @@ class CUSTOMER():
         
   def getMenu(self, selection, foodDic):
     if selection.lower() in foodDic.keys():
+      print(self.getPrice(foodDic, selection))
       return menu(selection, self.getPrice(foodDic, selection))
     else:
       return False
@@ -92,12 +95,12 @@ class CUSTOMER():
       var = input("Add an item to your cart: \nIf you want to exit return NO: \nIf you want to check out return CHECKOUT: ")
       if var.lower() == 'no':
         print(user_Cart)
-        self.findFood(foodDic)
+        return self.findFood(foodDic)
 
       elif var.lower() == 'checkout':
         x = False
         print(user_Cart)
-        self.checkOut(foodDic, selection)
+        return self.checkOut(foodDic, selection)
         
       elif var.lower() in menuDic.keys():
         self.addItem(var.lower(), menuDic[var])
