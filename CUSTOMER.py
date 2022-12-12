@@ -140,7 +140,7 @@ class CUSTOMER():
           attempts = solicitDelivery(50, 1)
           print("Your food is on the way " + self.__c + "!")
           duration = self.setDuration(foodDic, selection)
-          print("Your food will be delivered in ", returnTime(attempts, int(duration)), " minutes!") 
+          print("Your food will be delivered in", returnTime(attempts, int(duration)), "minutes!") 
           #Do you know how to create a timer? And encrypting the password
         else:
           print("Your food will be ready for pick up soon!")
@@ -168,13 +168,13 @@ class CUSTOMER():
         if (y == 'duration'):
           var = foodDic[selection][y].split(' ')
           return var[0]
-          
+
+  
   def getPrice(self, foodDic, selection):
     if selection in foodDic.keys():
       for y in foodDic[selection]:
-        if (y == 'duration'):
-          var = foodDic[selection][y].split(' ')
-          return var[0]
+        if (y == 'price_level'):
+          return foodDic[selection][y]
     
 
 #inherits everything, nothing changes except for type

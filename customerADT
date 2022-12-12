@@ -35,4 +35,10 @@ public interface CUSTOMER:
                 # Transaction will be stored in STREETEATS DATABASE
                 #Customer will receive a time estimate based on the latter and the number of items ordered
                 # A timer will be created, when the timer runs out a message will be displayed on the screen
-  
+
+
+def getDuration():
+  loops through foodDic to find Duration. Returns duration
+
+def getPrice():
+  loops through foodDic to find price. Returns price
