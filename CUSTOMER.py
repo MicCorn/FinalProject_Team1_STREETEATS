@@ -19,7 +19,7 @@ class CUSTOMER():
   global user_Cart 
   user_Cart = []
 
-  global DURATION
+  
   
   def __init__(self, location, ccNum, name):
     self.__a = location
@@ -27,12 +27,7 @@ class CUSTOMER():
     self.__c = name
 
 
-  def getDuration(self, foodDic, selection):
-    if selection in foodDic.keys():
-      for y in foodDic[selection]:
-        if (y == 'duration'):
-          DURATION = foodDic[selection][y]
-          print(DURATION)
+ 
 
 
   def Search(self):
@@ -91,7 +86,7 @@ class CUSTOMER():
     
   
   def order(self, selection, menuDic, foodDic):
-
+ 
     x = True
     while x is True:
       var = input("Add an item to your cart: \nIf you want to exit return NO: \nIf you want to check out return CHECKOUT: ")
@@ -102,7 +97,7 @@ class CUSTOMER():
       elif var.lower() == 'checkout':
         x = False
         print(user_Cart)
-        self.checkOut(foodDic)
+        self.checkOut(foodDic, selection)
         
       elif var.lower() in menuDic.keys():
         self.addItem(var.lower(), menuDic[var])
@@ -122,7 +117,7 @@ class CUSTOMER():
 
 
 
-  def checkOut(self, foodDic):
+  def checkOut(self, foodDic, selection):
     totalprice = 0
     discount = promotions(user_Cart)
     for x in user_Cart:
@@ -141,16 +136,15 @@ class CUSTOMER():
       if solicitOrder(user_Cart, totalprice - discount) is True:
         pud = input("Pick up or delivery? pu/d: ")
         if pud == 'd':
-          #if solicitDelivery(user_Cart) is True:
+
           attempts = solicitDelivery(50, 1)
           print("Your food is on the way " + self.__c + "!")
-          getDuration(foodDic, )
-          #countdown
-          #need help getting the distance, foodDIc is passed in the method (the one that spits everything), put distance as 0 for now
-          print(returnTime(attempts, 10))
-            
+          duration = self.setDuration(foodDic, selection)
+          print("Your food will be delivered in ", returnTime(attempts, int(duration)), " minutes!") 
+          #Do you know how to create a timer? And encrypting the password
         else:
           print("Your food will be ready for pick up soon!")
+          # return restaurantTime()
 
 
   def contact(self):
@@ -167,6 +161,23 @@ class CUSTOMER():
   def getccNum(self):
     return self.__b
 
+
+  def setDuration(self, foodDic, selection):
+    if selection in foodDic.keys():
+      for y in foodDic[selection]:
+        if (y == 'duration'):
+          var = foodDic[selection][y].split(' ')
+          return var[0]
+          
+  def getPrice(self, foodDic, selection):
+    if selection in foodDic.keys():
+      for y in foodDic[selection]:
+        if (y == 'duration'):
+          var = foodDic[selection][y].split(' ')
+          return var[0]
+    
+
+#inherits everything, nothing changes except for type
 class RegisteredUser(CUSTOMER):
   def __init__(self, location, ccNum, name):
       super().__init__(location, ccNum, name)

@@ -9,6 +9,7 @@ from random import randint
 
 attempt = 1
 
+#Probability represents probability of rejection
 def solicitDelivery(probability, attempts):
   print("looking for driver")
   time.sleep(5)
@@ -18,13 +19,13 @@ def solicitDelivery(probability, attempts):
     return attempts
   else:
     print("Delivery Rejected")
-    solicitDelivery(probability - (100 - int(probability/2)), attempts + 1)
+    return solicitDelivery(probability - (100 - int(probability/2)), attempts + 1)
   
 
 def returnTime(attempts, distance):
   
   countdown = distance + 5*attempts
-  pass
+  return countdown
   #returns a countdown in minutes
 
   
