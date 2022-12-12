@@ -79,7 +79,7 @@ class CUSTOMER():
         
   def getMenu(self, selection, foodDic):
     if selection.lower() in foodDic.keys():
-      return menu(selection)
+      return menu(selection, self.getPrice(foodDic, selection))
     else:
       return False
       

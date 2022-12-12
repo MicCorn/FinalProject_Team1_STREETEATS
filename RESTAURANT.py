@@ -5,7 +5,7 @@ import CUSTOMER
 
 
 ## returns the digital menu of the restaurant, includes promotions
-def menu(restaurant):
+def menu(restaurant, price_level):
   menuDic = {'tacos': 100, 'burger' : 50
     
   }

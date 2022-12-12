@@ -9,7 +9,7 @@ def search(customer_location):
     locTuple = (41.38843845116738, 2.170912691748747)
   else:
     geocode_result = gmaps.geocode(customer_location)
-    if geocode_result == []:
+    if geocode_result == []: #Error handling for bad location calls
       raise NameError("Could not find " + customer_location)
     #Add coordinates to a tuple
     locTuple = (geocode_result[0]["geometry"]["location"]["lat"], geocode_result[0]["geometry"]["location"]["lng"])
