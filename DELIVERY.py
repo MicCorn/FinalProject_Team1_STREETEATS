@@ -23,8 +23,9 @@ def solicitDelivery(probability, attempts):
   
 
 def returnTime(attempts, distance):
-  
   countdown = distance + 5*attempts
+  if countdown < 5:
+    raise ValueError("Countdown cannot be less than 5 minutes until delivery")
   return countdown
   #returns a countdown in minutes
 

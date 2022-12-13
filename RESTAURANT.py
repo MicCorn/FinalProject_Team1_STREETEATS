@@ -22,8 +22,11 @@ def menu(restaurant, price_level):
 
 def promotions(cart):
   num = 0
-  #for i in cart:
-  #  if i = code:
+  for i in cart:
+	  if i in d:
+		  d[i] = d[i] + 1
+	  else:
+		  d[i] = 1
       
   #List of lists
   #Buy 1 get 1 Free, Spend 10 save 7, Buy 2 get 1 Free, 
@@ -41,6 +44,5 @@ def solicitOrder(user_Cart, price):
   ##random variable that accepts/rejects order
   return var
   
-
   
   

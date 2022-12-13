@@ -16,7 +16,7 @@ def CCisValid(ccNum):
 
 def addCC(ccNum):
   file = open('creditcards.txt', 'r+')
-
+  
   result = CCisValid(ccNum)
   if result == False:
     file.write('\n' + str(ccNum))

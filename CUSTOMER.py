@@ -179,8 +179,12 @@ class CUSTOMER():
     if selection in foodDic.keys():
       for y in foodDic[selection]:
         if (y == 'price_level'):
-          return foodDic[selection][y]
-    
+         return foodDic[selection][y]
+
+  def countDown(self, countdown):
+    timeBiking = self.setDuration()
+    countdown = countdown + timeBiking
+    return countdown
 
 #inherits everything, nothing changes except for type
 class RegisteredUser(CUSTOMER):

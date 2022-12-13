@@ -10,4 +10,6 @@ public interface CREDITCARD:
 >>>>>>> origin/main
 
   def addCC():
+  """Checks if credit card found in list, if not, adds it to the list"
+
               
