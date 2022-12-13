@@ -148,6 +148,8 @@ class CUSTOMER():
         else:
           print("Your food will be ready for pick up soon!")
           # return restaurantTime()
+      else:
+        return "Order rejected", self.findFood(foodDic)
 
 
   def contact(self):

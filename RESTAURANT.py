@@ -3,6 +3,8 @@
 import CUSTOMER
 #from CUSTOMER import user_Cart
 
+from random import randint
+
 
 ## returns the digital menu of the restaurant, includes promotions
 def menu(restaurant, price_level):
@@ -30,7 +32,12 @@ def promotions(cart):
 
 
 def solicitOrder(user_Cart, price):
-  var = True
+  x = randint(0, 100)
+
+  if x <= 95:
+    var = True
+  else:
+    var = False
   ##random variable that accepts/rejects order
   return var
   
