@@ -13,6 +13,7 @@ import DELIVERY
 from DELIVERY import solicitDelivery
 from DELIVERY import returnTime
 
+import time
 
 class CUSTOMER():
 
@@ -48,7 +49,7 @@ class CUSTOMER():
       list = []
 
     print("Cart: ", user_Cart)
-    self.findFood(foodDic)
+    return self.findFood(foodDic)
 
     
   
@@ -69,7 +70,7 @@ class CUSTOMER():
           var = input("Would you like to order here? Y/N: ")
           if var.lower() == "y":
             x = False
-            self.order(selection, menuDic, foodDic)
+            return self.order(selection, menuDic, foodDic)
           else:
             x = False
             return self.findFood(foodDic)
@@ -90,20 +91,20 @@ class CUSTOMER():
   
   def order(self, selection, menuDic, foodDic):
  
-    x = True
-    while x is True:
-      var = input("Add an item to your cart: \nIf you want to exit return NO: \nIf you want to check out return CHECKOUT: ")
-      if var.lower() == 'no':
-        print(user_Cart)
-        return self.findFood(foodDic)
+    
+    var = input("Add an item to your cart: \nIf you want to exit return NO: \nIf you want to check out return CHECKOUT: ")
+    if var.lower() == 'no':
+      print(user_Cart)
+      return self.findFood(foodDic)
 
-      elif var.lower() == 'checkout':
-        x = False
-        print(user_Cart)
-        return self.checkOut(foodDic, selection)
+    elif var.lower() == 'checkout':
+      x = False
+      print(user_Cart)
+      return self.checkOut(foodDic, selection)
         
-      elif var.lower() in menuDic.keys():
-        self.addItem(var.lower(), menuDic[var])
+    elif var in menuDic.keys():
+      self.addItem(var.lower(), menuDic[var])
+      return self.order(selection, menuDic, foodDic)
 
  
   def addItem(self, item, price):
@@ -132,10 +133,11 @@ class CUSTOMER():
     if discount != 0:
       print("Congratulations! Your subtotal of " + str(totalprice) + "has been reduced to " + str(totalprice - discount))
     else:
-      print("You have a pending subtotal of " + str(totalprice))
+      print("You have a pending subtotal of ", totalprice)
 
     
     if CCisValid(self.__b):
+      print("accepts")
       if solicitOrder(user_Cart, totalprice - discount) is True:
         pud = input("Pick up or delivery? pu/d: ")
         if pud == 'd':
@@ -144,9 +146,22 @@ class CUSTOMER():
           print("Your food is on the way " + self.__c + "!")
           duration = self.setDuration(foodDic, selection)
           print("Your food will be delivered in", returnTime(attempts, int(duration)), "minutes!") 
-          #Do you know how to create a timer? And encrypting the password
+
+          print(self.countDown(returnTime(attempts, int(duration))))
+
+          print("It's here! Meet your order at the door")
+
+
+          
         else:
           print("Your food will be ready for pick up soon!")
+          duration = self.setDuration(foodDic, selection)
+          print(self.countDown(int(duration)))
+
+          print("It's ready! Pick up your order")
+
+      
+
           # return restaurantTime()
       else:
         return "Order rejected", self.findFood(foodDic)
@@ -181,10 +196,19 @@ class CUSTOMER():
         if (y == 'price_level'):
          return foodDic[selection][y]
 
-  def countDown(self, countdown):
-    timeBiking = self.setDuration()
-    countdown = countdown + timeBiking
-    return countdown
+  def countDown(self, t):
+    t = t*60
+    while t:
+      mins, secs = divmod(t, 60)
+      timer = '{:02d}:{:02d}'.format(mins, secs)
+      print(timer, end="\r")
+      time.sleep(0.1)
+      t -= 1
+      
+      
+    
+
+    pass
 
 #inherits everything, nothing changes except for type
 class RegisteredUser(CUSTOMER):

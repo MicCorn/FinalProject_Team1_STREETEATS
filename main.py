@@ -4,6 +4,3 @@ from KEBABOCLOCK import logIn
 
 print(logIn())
 #print(create_customer())
-
-
-

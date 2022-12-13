@@ -3,11 +3,7 @@ package STREETEATS;
 public interface CREDITCARD:
 
   def CCisValid():
-<<<<<<< HEAD
-              Imports a python file (created by STREETEATS), and checks if the given CC number is in it, returns TRUE if found.
-=======
                   Imports a python file (created by STREETEATS), and checks if the given CC number is in it. If it is and outstanding balance is non-negative, returns true.
->>>>>>> origin/main
 
   def addCC():
   """Checks if credit card found in list, if not, adds it to the list"

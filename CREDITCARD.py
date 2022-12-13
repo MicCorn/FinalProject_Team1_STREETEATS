@@ -20,6 +20,7 @@ def addCC(ccNum):
   result = CCisValid(ccNum)
   if result == False:
     file.write('\n' + str(ccNum))
+  file.close()
 
 
                   
